@@ -5,8 +5,7 @@
   "private": true,
   "scripts": {
     "start": "node server.js",
-    "test": "jest",
-    "build": "bun build --outdir=dist"
+    "test": "jest"
   },
   "devDependencies": {
     "@types/bun": "latest",
