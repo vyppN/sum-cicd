@@ -10,7 +10,7 @@ app.use(cors());
 
 // Define a route handler for the default home page
 app.get('/', (req, res) => {
-  res.send('Hello World from Express.js!');
+  res.send('Auto deploy from github');
 });
 
 app.get('/api', (req, res) => {
