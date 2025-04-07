@@ -33,5 +33,5 @@ jobs:
         env:
           RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
         run: |
-          render login --api-key $RENDER_API_KEY
+          render login
           render deploy srv-cvpvib1r0fns73898io0
