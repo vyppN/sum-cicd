@@ -34,4 +34,4 @@ jobs:
           RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
           CI: true
         run: |
-          render deploy srv-cvpvib1r0fns73898io0 --output json --confirm
+          render deploys srv-cvpvib1r0fns73898io0 --output json --confirm
