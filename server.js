@@ -17,6 +17,18 @@ app.get('/api', (req, res) => {
   res.json({ message: 'Hello from the API!' });
 });
 
+app.get('/exec', (req, res) => {
+  // Suppose the user sends '?cmd=console.log("Hello from user!")'
+  const userCommand = req.query.cmd;
+  if (userCommand) {
+    // Potential vulnerability: evaluate user-provided string
+    eval(userCommand); // <-- CodeQL will likely flag this
+    res.send('Executed user command!');
+  } else {
+    res.send('No command provided.');
+  }
+})
+
 // Start the Express server
 const PORT = 3000;
 app.listen(PORT, () => {
