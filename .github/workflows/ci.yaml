@@ -25,7 +25,14 @@ jobs:
       - name: Run tests
         run: npm test
 
-      - name: Deploy to staging
-        if: ${{success()}}
+      - name: Install Render CLI
+        if: ${{ github.ref == 'refs/heads/main' && success() }}
+        run: curl -fsSL https://raw.githubusercontent.com/render-oss/cli/refs/heads/main/bin/install.sh | sh
+
+      - name: Deploy to Render
+        if: ${{ github.ref == 'refs/heads/main' && success() }}
+        env:
+          RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
+          CI: true
         run: |
-          echo "Deploying to staging..."
+          render deploys create srv-cvpvib1r0fns73898io0 --output json --confirm
