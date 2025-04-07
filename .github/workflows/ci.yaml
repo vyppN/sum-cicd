@@ -26,7 +26,7 @@ jobs:
         run: npm test
 
       - name: Install Render CLI
-        run: curl -fsSL https://render.com/install | bash
+        run: curl -fsSL https://raw.githubusercontent.com/render-oss/cli/refs/heads/main/bin/install.sh | sh
 
       - name: Deploy to Render
         if: ${{ success() }}
