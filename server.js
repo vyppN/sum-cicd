@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/api', (req, res) => {
-  res.json({ message: 'Hello from the API!' });
+  res.json({ message: 'Auto deploy from github' });
 });
 
 // Start the Express server

@@ -25,7 +25,13 @@ jobs:
       - name: Run tests
         run: npm test
 
-      - name: Deploy to staging
-        if: ${{success()}}
+      - name: Install Render CLI
+        run: curl -fsSL https://render.com/install | bash
+
+      - name: Deploy to Render
+        if: ${{ success() }}
+        env:
+          RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
         run: |
-          echo "Deploying to staging..."
+          render login --api-key $RENDER_API_KEY
+          render deploy srv-cvpvib1r0fns73898io0
